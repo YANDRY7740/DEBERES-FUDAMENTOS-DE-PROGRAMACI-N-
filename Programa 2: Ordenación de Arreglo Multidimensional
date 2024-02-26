@@ -1,0 +1,33 @@
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i+1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+
+def sort_specific_row(matrix, row_index):
+    row = matrix[row_index]
+    selection_sort(row)
+
+def print_matrix(matrix):
+    for row in matrix:
+        print(row)
+
+# Matriz original
+matrix = [
+    [3, 1, 4],
+    [10, 5, 2],
+    [7, 8, 6]
+]
+
+print("Matriz original:")
+print_matrix(matrix)
+
+# Ordenar la fila específica (por ejemplo, la segunda fila)
+row_index_to_sort = 1
+sort_specific_row(matrix, row_index_to_sort)
+
+print("\nMatriz con la fila", row_index_to_sort, "ordenada:")
+print_matrix(matrix)
