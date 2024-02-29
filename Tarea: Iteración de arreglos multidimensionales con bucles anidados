@@ -1,0 +1,49 @@
+# Definir los datos de temperatura
+temperaturas = [
+    # Ciudad 0
+    [
+        # Semana 0
+        [[25, 26, 27, 24, 26],   # Lunes
+         [27, 28, 25, 24, 26],   # Martes
+         [26, 27, 28, 26, 25],   # Miércoles
+         [24, 25, 26, 27, 28],   # Jueves
+         [25, 26, 27, 24, 26],   # Viernes
+         [27, 28, 25, 24, 26],   # Sábado
+         [26, 27, 28, 26, 25]],  # Domingo
+        # Semana 1
+        [[28, 25, 27, 25, 26],   # Lunes
+         [27, 26, 25, 24, 27],   # Martes
+         [26, 27, 26, 27, 25],   # Miércoles
+         [25, 24, 26, 28, 27],   # Jueves
+         [26, 27, 25, 26, 24],   # Viernes
+         [27, 25, 26, 24, 26],   # Sábado
+         [28, 26, 27, 25, 24]]   # Domingo
+    ],
+    # Ciudad 1
+    [
+        # Semana 0
+        [[23, 25, 26, 24, 25],   # Lunes
+         [24, 23, 25, 26, 24],   # Martes
+         [25, 24, 23, 25, 26],   # Miércoles
+         [26, 25, 24, 23, 25],   # Jueves
+         [24, 23, 25, 26, 24],   # Viernes
+         [25, 24, 23, 25, 26],   # Sábado
+         [26, 25, 24, 23, 25]],  # Domingo
+        # Semana 1
+        [[27, 25, 23, 24, 26],   # Lunes
+         [23, 24, 26, 25, 27],   # Martes
+         [25, 26, 24, 27, 23],   # Miércoles
+         [24, 27, 25, 23, 26],   # Jueves
+         [26, 24, 23, 25, 27],   # Viernes
+         [23, 25, 27, 26, 24],   # Sábado
+         [25, 27, 26, 24, 23]]   # Domingo
+    ]
+]
+
+# Calcular promedio de temperaturas por ciudad y semana
+for ciudad_idx, ciudad_temperaturas in enumerate(temperaturas):
+    print(f"Promedio de temperaturas para Ciudad {ciudad_idx}:")
+    for semana_idx, semana_temperaturas in enumerate(ciudad_temperaturas):
+        promedio_semana = sum(sum(dia) for dia in semana_temperaturas) / (len(semana_temperaturas) * len(semana_temperaturas[0]))
+        print(f"Semana {semana_idx}: {promedio_semana:.2f}°C")
+    print()
