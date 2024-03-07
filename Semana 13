@@ -1,0 +1,45 @@
+def calcular_temperatura_promedio(datos):
+    promedios_ciudades = {}
+
+    for ciudad, semanas in datos.items():
+        total_temperatura = 0
+        total_dias = 0
+
+        for semana, temperaturas in semanas.items():
+            total_temperatura += sum(temperaturas)
+            total_dias += len(temperaturas)
+
+        promedio_ciudad = total_temperatura / total_dias
+        promedios_ciudades[ciudad] = promedio_ciudad
+
+    return promedios_ciudades
+
+
+# Ejemplo de datos de temperatura de 3 ciudades durante 4 semanas
+datos_temperatura = {
+    'Ciudad A': {
+        'Semana 1': [25, 26, 27, 28, 29, 30, 31],
+        'Semana 2': [26, 27, 28, 29, 30, 31, 32],
+        'Semana 3': [27, 28, 29, 30, 31, 32, 33],
+        'Semana 4': [28, 29, 30, 31, 32, 33, 34],
+    },
+    'Ciudad B': {
+        'Semana 1': [20, 21, 22, 23, 24, 25, 26],
+        'Semana 2': [21, 22, 23, 24, 25, 26, 27],
+        'Semana 3': [22, 23, 24, 25, 26, 27, 28],
+        'Semana 4': [23, 24, 25, 26, 27, 28, 29],
+    },
+    'Ciudad C': {
+        'Semana 1': [15, 16, 17, 18, 19, 20, 21],
+        'Semana 2': [16, 17, 18, 19, 20, 21, 22],
+        'Semana 3': [17, 18, 19, 20, 21, 22, 23],
+        'Semana 4': [18, 19, 20, 21, 22, 23, 24],
+    }
+}
+
+# Llamada a la función para calcular la temperatura promedio de cada ciudad
+promedios = calcular_temperatura_promedio(datos_temperatura)
+
+# Imprimir los resultados
+for ciudad, promedio in promedios.items():
+    print(f"Temperatura promedio en {ciudad}: {promedio:.2f}°C")
